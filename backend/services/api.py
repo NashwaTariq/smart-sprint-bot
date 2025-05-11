@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from services import agent_management_service
 from tools import jira_tool
 from agent import ask_agent
-from models.schemas import TicketCreate, ChatAgent
+from models.schemas import TicketCreate, ChatAgent, AgentConfig
 from tools.session_tool import get_sessions
 
 app = FastAPI()  # Initialize FastAPI app
@@ -48,6 +49,15 @@ async def create_jira_ticket(ticket: TicketCreate):
 async def delete_jira_ticket(key: str):
     result = jira_tool.delete_jira_issue(key)
     return {"result": result}
+
+
+@app.get("/api/agent/status")
+async def get_status():
+    return agent_management_service.get_agent_status()
+
+@app.post("/api/agent/config")
+async def update_config(config: AgentConfig):
+    return agent_management_service.update_agent_config(config.dict())
 
 # Create ASGI app for uvicorn
 asgi_app = app

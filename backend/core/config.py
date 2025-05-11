@@ -1,7 +1,42 @@
-JIRA_URL = "https://folio3.atlassian.net/"
-EMAIL = "alizajamal@folio3.com"
-API_TOKEN = "ATATT3xFfGF0ZlILWqThuVMcHfeSs2Z4H4LPC_4C6z8O9QjL8oLSb7Ecuqejhc368A8D_cArirgYY1Z568Hpa4IzpiCRIbs3wYqTNr59FR_u2t8C57ku-8WqIe4E1IP6s3rrq0XK0wE7IlRZ4OWdZmgc6rh5t2QOsYkhFXNt4Pt3iuwIU4ZbdrA=F49F3AD0"
-openAI_API_KEY = "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"
-GROQ_API_KEY = "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"
-#MODEL_NAME = "mixtral-8x7b-32768"  # or "llama3-70b-8192", etc.
-MODEL_NAME = "llama-3.3-70b-versatile"
+import json
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+from models.schemas import AgentConfig
+
+# Load .env file if it exists
+load_dotenv()
+
+CONFIG_PATH = Path("core/agent_config.json")
+
+# Load configuration from JSON or fallback to .env
+def load_config() -> AgentConfig:
+    if CONFIG_PATH.exists():
+        try:
+            with open(CONFIG_PATH, "r") as f:
+                data = json.load(f)
+            return AgentConfig(**data)
+        except Exception as e:
+            raise ValueError(f"Invalid config file: {e}")
+    else:
+        return AgentConfig(
+            groqApiKey=os.getenv("GROQ_API_KEY", ""),
+            jiraApiKey=os.getenv("API_TOKEN", ""),
+            jiraEmail=os.getenv("EMAIL", ""),
+            jiraUrl=os.getenv("JIRA_URL", ""),
+        )
+
+def save_config(config: AgentConfig):
+    CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(CONFIG_PATH, "w") as f:
+        json.dump(config.dict(), f, indent=2)
+
+# Load once and expose individual variables
+_config = load_config()
+
+GROQ_API_KEY = _config.groq_api_key
+JIRA_API_KEY = _config.jira_api_key
+EMAIL = _config.jira_user
+JIRA_URL = _config.jira_url
+API_TOKEN = os.getenv("API_TOKEN", "")
+MODEL_NAME = os.getenv("MODEL_NAME", "llama-3.3-70b-versatile")

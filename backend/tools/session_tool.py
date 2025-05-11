@@ -3,7 +3,7 @@ import os
 import uuid
 from datetime import datetime
 
-SESSIONS_FILE = "sessions.json"
+SESSIONS_FILE = "logs/sessions.json"
 
 def load_sessions():
     if not os.path.exists(SESSIONS_FILE):
