@@ -69,4 +69,8 @@ def get_session_detail_by_id(session_id: str = 'default'):
             return s
     return None
 
+def get_sessions():
+    sessions = load_sessions()
+    return sessions["sessions"]
+
 

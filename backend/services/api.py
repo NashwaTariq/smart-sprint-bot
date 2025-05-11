@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from tools import jira_tool
 from agent import ask_agent
 from models.schemas import TicketCreate, ChatAgent
-from tools.session_tool import get_session_detail_by_id
+from tools.session_tool import get_sessions
 
 app = FastAPI()  # Initialize FastAPI app
 
@@ -25,9 +25,9 @@ async def get_agent_response(agent: ChatAgent):
 
 
 # Get session logs
-@app.get("/api/sessions/logs/{session_id}")
-async def get_session_logs(session_id: str):
-    return get_session_detail_by_id(session_id)
+@app.get("/api/sessions/logs")
+async def get_session_logs():
+    return get_sessions()
 
 # Define a route to get JIRA issues
 @app.get("/api/jira/issues")
