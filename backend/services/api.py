@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from tools import jira_tool
 from agent import ask_agent
+from models.schemas import TicketCreate, ChatAgent
+from tools.session_tool import get_session_detail_by_id
 
 app = FastAPI()  # Initialize FastAPI app
 
@@ -14,17 +16,18 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-class TicketCreate(BaseModel):
-    summary: str
-
-class ChatAgent(BaseModel):
-    query: str
 
 # Define a route to get agent response
 @app.post("/api/agents/ask")
 async def get_agent_response(agent: ChatAgent):
     response = ask_agent(agent.query)
     return {"response": response, "status": "success"}
+
+
+# Get session logs
+@app.get("/api/sessions/logs/{session_id}")
+async def get_session_logs(session_id: str):
+    return get_session_detail_by_id(session_id)
 
 # Define a route to get JIRA issues
 @app.get("/api/jira/issues")
