@@ -1,19 +1,8 @@
 from jira import JIRA
-from config import JIRA_URL, EMAIL, API_TOKEN
+from core.config import JIRA_URL, EMAIL, API_TOKEN
 
 def connect_to_jira():
     return JIRA(server=JIRA_URL, basic_auth=(EMAIL, API_TOKEN))
-
-def get_agent_response(query: str) -> str:
-    """
-    Process the agent's query and return a response.
-    This is a placeholder implementation that you can customize based on your needs.
-    """
-    try:
-        # For now, return a simple response
-        return f"I received your query: {query}. This is a placeholder response."
-    except Exception as e:
-        return f"Error processing query: {str(e)}"
 
 def get_my_issues():
     jira = connect_to_jira()

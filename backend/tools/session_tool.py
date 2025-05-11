@@ -32,6 +32,13 @@ def create_session(title):
 
 def append_message(session_id, user_input, bot_response):
     sessions = load_sessions()
+
+    # If sessions.json file was missing or empty, ensure base structure
+    if "sessions" not in sessions:
+        sessions["sessions"] = []
+
+    # Try to find the session
+    session_found = False
     for s in sessions["sessions"]:
         if s["id"] == session_id:
             s["messages"].append({
@@ -39,5 +46,27 @@ def append_message(session_id, user_input, bot_response):
                 "user": user_input,
                 "bot": bot_response
             })
+            session_found = True
             break
-    save_sessions(sessions)
+
+    # If session not found, create a new one with the given session_id
+    if not session_found:
+        sessions["sessions"].append({
+            "id": session_id,
+            "title": "Untitled Session",
+            "messages": [{
+                "timestamp": datetime.now().isoformat(),
+                "user": user_input,
+                "bot": bot_response
+            }],
+            "created_at": datetime.now().isoformat()
+        })
+
+def get_sessions(session_id: str):
+    sessions = load_sessions()
+    for s in sessions["sessions"]:
+        if s["id"] == session_id:
+            return s
+    return None
+
+

@@ -1,0 +1,16 @@
+{
+    "sessions": [
+        {
+            "id": "default",
+            "title": "Untitled Session",
+            "messages": [
+                {
+                    "timestamp": "2025-05-12T01:07:15.167479",
+                    "user": "hello",
+                    "bot": "Hello, I'm ready to assist you with your JIRA issues. Please let me know how I can help."
+                }
+            ],
+            "created_at": "2025-05-12T01:07:15.167499"
+        }
+    ]
+}
