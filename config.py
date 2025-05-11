@@ -1,0 +1,7 @@
+JIRA_URL = "https://folio3.atlassian.net/"
+EMAIL = "alizajamal@folio3.com"
+API_TOKEN = "ATATT3xFfGF0ZlILWqThuVMcHfeSs2Z4H4LPC_4C6z8O9QjL8oLSb7Ecuqejhc368A8D_cArirgYY1Z568Hpa4IzpiCRIbs3wYqTNr59FR_u2t8C57ku-8WqIe4E1IP6s3rrq0XK0wE7IlRZ4OWdZmgc6rh5t2QOsYkhFXNt4Pt3iuwIU4ZbdrA=F49F3AD0"
+openAI_API_KEY = "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"
+GROQ_API_KEY = "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"
+#MODEL_NAME = "mixtral-8x7b-32768"  # or "llama3-70b-8192", etc.
+MODEL_NAME = "llama-3.3-70b-versatile"
