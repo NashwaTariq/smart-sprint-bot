@@ -23,6 +23,20 @@ A powerful orchestration platform for managing AI agents with real-time sprint p
 - 🗂️ Smart sprint bot for intelligent task breakdown  
 - 🧩 Modular config via intuitive web UI  
 - 💬 Real-time response display and logging
+---
+
+## 🐋 Run via Docker
+
+```
+# Frontend:
+docker load -i frontend.tar
+
+or from frontend folder:
+
+docker build -t frontend:latest .
+docker run  -p 5555:80 --name container -d frontend:latest 
+
+```
 
 ---
 
