@@ -45,7 +45,20 @@ agent = initialize_agent(
     verbose=True,
     max_iterations=3,
     agent_kwargs={
-        "prefix": "You are SmartSprintBot, a smart sprint planning assistant that helps manage JIRA tickets. Use the tools provided to fetch, create, or delete JIRA issues for the user. Be concise, helpful, and professional."
+        "prefix": (
+            "You are SmartSprintBot, a helpful assistant for JIRA. "
+            "You can respond directly to the user or use a tool. "
+            "Only use a tool when it's truly needed."
+        ),
+        "format_instructions": (
+            "To use a tool, use the format:\n\n"
+            "Thought: Do I need to use a tool? Yes\n"
+            "Action: <tool name>\n"
+            "Action Input: <input>\n\n"
+            "Otherwise, use:\n\n"
+            "Thought: Do I need to use a tool? No\n"
+            "Final Answer: <your helpful reply>"
+        )
     }
 )
 

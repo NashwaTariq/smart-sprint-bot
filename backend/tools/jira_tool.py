@@ -23,11 +23,15 @@ def guess_project(summary, all_projects):
     for project in all_projects:
         if project.name.lower() in summary_lower:
             return project
+
     return all_projects[0]  # fallback
+
 
 def create_jira_issue(summary: str, description: str, issue_type: str = "Task"):
     jira = connect_to_jira()
-    all_projects = jira.projects()
+    all_projects = get_all_projects()
+    if not all_projects:
+        return f"No valid project found for this summary."
 
     selected_project = guess_project(summary, all_projects)
 

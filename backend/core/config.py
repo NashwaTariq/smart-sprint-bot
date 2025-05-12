@@ -17,14 +17,17 @@ def load_config() -> AgentConfig:
                 data = json.load(f)
             return AgentConfig(**data)
         except Exception as e:
-            raise ValueError(f"Invalid config file: {e}")
+            return get_default_config()
     else:
-        return AgentConfig(
-            groqApiKey=os.getenv("GROQ_API_KEY", ""),
-            jiraApiKey=os.getenv("API_TOKEN", ""),
-            jiraEmail=os.getenv("EMAIL", ""),
-            jiraUrl=os.getenv("JIRA_URL", ""),
-        )
+        return get_default_config()
+       
+def get_default_config():
+    return AgentConfig(
+        groq_api_key=os.getenv("GROQ_API_KEY", ""),
+        jira_api_key=os.getenv("API_TOKEN", ""),
+        jira_user=os.getenv("JIRA_EMAIL", ""),
+        jira_url=os.getenv("JIRA_URL", ""),
+    )
 
 def save_config(config: AgentConfig):
     CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)

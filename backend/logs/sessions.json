@@ -43,6 +43,65 @@
                 }
             ],
             "created_at": "2025-05-12T10:14:35.417781"
+        },
+        {
+            "id": "smartsprintbot@gmail.com_2025-05-12",
+            "title": "Untitled Session",
+            "messages": [
+                {
+                    "timestamp": "2025-05-12T10:30:26.525191",
+                    "user": "make ticket for fe task in projetc",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                },
+                {
+                    "timestamp": "2025-05-12T10:31:13.634287",
+                    "user": "create task in AI Hackathon Project for solving equation",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                },
+                {
+                    "timestamp": "2025-05-12T10:33:53.879390",
+                    "user": " create task in AI Hackathon Project for solving equation",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                },
+                {
+                    "timestamp": "2025-05-12T10:36:28.172444",
+                    "user": "create ticket",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                },
+                {
+                    "timestamp": "2025-05-12T10:38:10.648401",
+                    "user": "create ticket",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                },
+                {
+                    "timestamp": "2025-05-12T10:45:09.832196",
+                    "user": "hi",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                },
+                {
+                    "timestamp": "2025-05-12T10:47:54.483399",
+                    "user": "hi",
+                    "bot": "Hello, how can I help you with JIRA today?"
+                },
+                {
+                    "timestamp": "2025-05-12T10:48:16.848433",
+                    "user": "find projects list",
+                    "bot": "The list of JIRA projects is currently empty."
+                }
+            ],
+            "created_at": "2025-05-12T10:30:26.525197"
+        },
+        {
+            "id": "_2025-05-12",
+            "title": "Untitled Session",
+            "messages": [
+                {
+                    "timestamp": "2025-05-12T10:42:45.307802",
+                    "user": "hello",
+                    "bot": "Agent stopped due to iteration limit or time limit."
+                }
+            ],
+            "created_at": "2025-05-12T10:42:45.307809"
         }
     ]
 }
