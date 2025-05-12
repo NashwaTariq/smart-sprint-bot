@@ -43,7 +43,7 @@ A powerful orchestration platform for managing AI agents with real-time sprint p
 From backend folder:
 
 docker build -t backend:latest .
-docker run  -p 8000:80 --name container -d backend:latest 
+docker run  -p 8000:80 --name mcp-container -d backend:latest 
 
 
 # Frontend:
