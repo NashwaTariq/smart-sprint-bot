@@ -61,6 +61,7 @@ def append_message(session_id, user_input, bot_response):
             }],
             "created_at": datetime.now().isoformat()
         })
+    save_sessions(sessions)
 
 def get_session_detail_by_id(session_id: str = 'default'):
     sessions = load_sessions()
