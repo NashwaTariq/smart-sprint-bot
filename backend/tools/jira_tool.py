@@ -9,7 +9,14 @@ def connect_to_jira():
 def get_my_issues():
     jira = connect_to_jira()
     issues = jira.search_issues('assignee=currentUser() ORDER BY created DESC', maxResults=5)
+
+    if not issues:
+        return "You have no active JIRA issues."
     return "\n".join([f"{issue.key}: {issue.fields.summary}" for issue in issues])
+
+def get_all_projects():
+    jira = connect_to_jira()
+    return jira.projects()
 
 def guess_project(summary, all_projects):
     summary_lower = summary.lower()

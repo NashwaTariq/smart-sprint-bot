@@ -11,7 +11,12 @@ jira_tools = [
     Tool(
         name="GetMyJiraIssues",
         func=lambda _: jira_tool.get_my_issues(),
-        description="Use this to get issues assigned to the current user in JIRA"
+        description="Use this to get issues assigned to the current user in JIRA",
+    ),
+    Tool(
+        name="GetAllJiraProjects",
+        func=lambda _: jira_tool.get_all_projects(),
+        description="Use this to get all JIRA projects",
     ),
     Tool(
         name="CreateJiraTicket",
@@ -19,12 +24,12 @@ jira_tools = [
             summary=input,
             description="Auto-created from SmartSprintBot"
         ),
-        description="Use this to create a new JIRA ticket with a summary"
+        description="Use this to create a new JIRA ticket with a summary",
     ),
     Tool(
         name="DeleteJiraTicket",
         func=lambda input: jira_tool.delete_jira_issue(input),
-        description="Use this to delete a JIRA ticket with a key"
+        description="Use this to delete a JIRA ticket with a key",
     )
 ]
 
@@ -37,6 +42,7 @@ agent = initialize_agent(
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True,
+    max_iterations=3,
     agent_kwargs={
         "prefix": "You are SmartSprintBot, a smart sprint planning assistant that helps manage JIRA tickets. Use the tools provided to fetch, create, or delete JIRA issues for the user. Be concise, helpful, and professional."
     }
