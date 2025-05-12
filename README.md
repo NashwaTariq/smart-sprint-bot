@@ -42,3 +42,19 @@ pip install -r requirements.txt
 
 # 4. Start the server
 uvicorn services.api:asgi_app --host 0.0.0.0 --port 8000
+
+
+---
+
+## 🛠️ Frontend Setup (Angular)
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/NashwaTariq/smart-sprint-bot
+cd smart-sprint-bot/frontend
+
+# 2. Install dependencies
+npm i
+
+# 3. Run locally
+npm run start
