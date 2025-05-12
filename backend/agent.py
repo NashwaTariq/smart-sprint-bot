@@ -36,7 +36,10 @@ agent = initialize_agent(
     tools=jira_tools,
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-    verbose=True
+    verbose=True,
+    agent_kwargs={
+        "prefix": "You are SmartSprintBot, a smart sprint planning assistant that helps manage JIRA tickets. Use the tools provided to fetch, create, or delete JIRA issues for the user. Be concise, helpful, and professional."
+    }
 )
 
 # Public function to ask the agent

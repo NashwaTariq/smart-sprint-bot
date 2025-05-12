@@ -1,5 +1,7 @@
 from jira import JIRA
 from core.config import JIRA_URL, EMAIL, API_TOKEN
+import requests
+from requests.auth import HTTPBasicAuth
 
 def connect_to_jira():
     return JIRA(server=JIRA_URL, basic_auth=(EMAIL, API_TOKEN))
@@ -40,3 +42,16 @@ def delete_jira_issue(issue_key: str):
         return f"Issue '{issue_key}' deleted successfully."
     except Exception as e:
         return f"Failed to delete issue '{issue_key}': {str(e)}"
+    
+
+def test_jira_connection(jira_url: str, email: str, api_key: str) -> bool:
+    try:
+        response = requests.get(
+            f"{jira_url}/rest/api/3/myself",
+            auth=HTTPBasicAuth(email, api_key),
+            headers={"Accept": "application/json"},
+            timeout=5
+        )
+        return response.status_code == 200
+    except Exception:
+        return False 
