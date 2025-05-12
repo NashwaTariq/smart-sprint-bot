@@ -1,4 +1,4 @@
-# 🚀 MCP Server – Multi-Agent Command Post
+# 🚀 MCP Server – Sprint Smart Bot
 
 A powerful orchestration platform for managing AI agents with real-time sprint planning, action execution, and seamless collaboration.
 
@@ -23,6 +23,17 @@ A powerful orchestration platform for managing AI agents with real-time sprint p
 - 🗂️ Smart sprint bot for intelligent task breakdown  
 - 🧩 Modular config via intuitive web UI  
 - 💬 Real-time response display and logging
+
+
+---
+
+## 🔜 Future Scaling
+
+- Mail sprint status from JIRA to team
+- Send daily JIRA report to team
+- Github repo linked for any commit or open pull-requests
+- Auto code review and send code review status via mail
+
 ---
 
 ## 🐋 Run via Docker
