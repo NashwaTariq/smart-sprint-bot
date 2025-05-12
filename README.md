@@ -10,10 +10,10 @@ A powerful orchestration platform for managing AI agents with real-time sprint p
 
 ## 📸 Screenshots
 
-🔗 [View Interface Screenshots (Google Drive)](https://drive.google.com/file/d/1OTai-5KGNntX0LEDizXVtVgnTrcqdGxc/view?usp=sharing)
-![Screenshot](https://drive.google.com/file/d/1UD_GruT5pfYvXX6KxnTrKWPcIAHrcAjz/view?usp=sharing)
-![Screenshot](https://drive.google.com/file/d/14Seym4wJ9SUDbHMR6qtNlGqY2g7xMQC_/view?usp=sharing)
-![Screenshot](https://drive.google.com/file/d/1OGlrgBPdDF3t__wIlUyOeWiOlDpN-zW1/view?usp=sharing)
+🔗 [View Interface Screenshots (Google Drive)](https://drive.google.com/uc?export=view&id=1OTai-5KGNntX0LEDizXVtVgnTrcqdGxc)
+![Screenshot](https://drive.google.com/uc?export=view&id=1UD_GruT5pfYvXX6KxnTrKWPcIAHrcAjz)
+![Screenshot](https://drive.google.com/uc?export=view&id=14Seym4wJ9SUDbHMR6qtNlGqY2g7xMQC_)
+![Screenshot](https://drive.google.com/uc?export=view&id=1OGlrgBPdDF3t__wIlUyOeWiOlDpN-zW1)
 
 ---
 
