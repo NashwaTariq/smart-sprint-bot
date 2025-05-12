@@ -39,10 +39,15 @@ A powerful orchestration platform for managing AI agents with real-time sprint p
 ## 🐋 Run via Docker
 
 ```
-# Frontend:
-docker load -i frontend.tar
+# Backend:
+From backend folder:
 
-or from frontend folder:
+docker build -t backend:latest .
+docker run  -p 8000:80 --name container -d backend:latest 
+
+
+# Frontend:
+From frontend folder:
 
 docker build -t frontend:latest .
 docker run  -p 5555:80 --name container -d frontend:latest 
